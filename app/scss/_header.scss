@@ -4,7 +4,7 @@
             display: block;
         }
 
-       .header__menu {
+       .header__toggle {
             > span:first-child {
                 transform: rotate(45deg);
             }
@@ -30,7 +30,10 @@
     }
 
     nav {
-        padding: 1.0625rem 1.5rem;
+        position: relative;
+        background-color: $white;
+        padding-top: 1.0625rem;
+        padding-bottom: 1.0625rem;
     }
 
     &__logo {
@@ -39,7 +42,7 @@
         }
     }
 
-    &__menu { // Mobile menu
+    &__toggle { // Mobile menu toggle
         > span {
             display: block;
             width: 26px;
@@ -94,6 +97,26 @@
         transition: opacity 300ms ease-in-out;
         &:hover {
             opacity: 0.75;
+        }
+    }
+
+    &__menu {
+        background: $white;
+        //background: #e6e6e6;
+        padding-top: 1.265rem;
+        padding-bottom: 1.265rem;
+        border-radius: 5px;
+        position: absolute;
+        width: calc(100% - 3rem);
+        left: 50%;
+        margin-top: 1.5rem;
+        transform: translateX(-50%);
+
+        a {
+            display: block;
+            padding: 0.625rem;
+            color: $darkBlue;
+            text-align: center;
         }
     }
 }

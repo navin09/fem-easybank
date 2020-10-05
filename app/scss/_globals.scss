@@ -14,6 +14,10 @@ body {
     color: $grayishBlue;
     font-size: $font-med;
     font-family: 'Public Sans', sans-serif;
+
+    &.noscroll {
+        overflow: hidden;
+    }
 }
 
 a,
@@ -22,6 +26,12 @@ a:visited,
 a:hover,
 a:active {
     text-decoration: none;
+}
+
+// Spacing
+.container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
 }
 
 // Flexbox styles
