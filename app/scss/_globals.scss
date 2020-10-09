@@ -15,9 +15,45 @@ body {
     font-size: $font-med;
     font-family: 'Public Sans', sans-serif;
 
+    min-height: 300vh;
+
     &.noscroll {
         overflow: hidden;
     }
+
+    @include breakpoint-up(large) {
+        font-size: $font-med;
+    }
+}
+
+h1, h2, h3, p {
+    color: $darkBlue;
+    font-weight: 300;
+    line-height: 1.15;
+    margin-top: 0;
+}
+
+h1 {
+    font-size: 2.3125rem;
+    margin-bottom: 1.5rem;
+    @include breakpoint-up(large) {
+        font-size: $font-xlg;
+    }
+}
+
+h2 {
+    font-size: 1.875rem;
+    margin-bottom: 1.5625rem;
+    @include breakpoint-up(large) {
+        font-size: 2.25rem;
+        margin-bottom: 2.25rem;
+    }
+
+}
+
+p {
+    line-height: 1.5;
+    margin-bottom: 2.25rem;
 }
 
 a,
@@ -30,8 +66,55 @@ a:active {
 
 // Spacing
 .container {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
+    max-width: 69.375rem;
+    margin: auto;
+
+    &--pall {
+        padding-top: 4.375rem;
+        padding-right: 1.5rem;
+        padding-bottom: 4.375rem;
+        padding-left: 1.5rem;
+        @include breakpoint-up(large) {
+            padding-top: 6rem;
+            padding-bottom: 6rem;
+        }
+    }
+
+    &--py {
+        padding-top: 4.375rem;
+        padding-bottom: 4.375rem;
+        @include breakpoint-up(large) {
+            padding-top: 6rem;
+            padding-bottom: 6rem;
+        }
+    }
+
+    &--px {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+
+    &--pt {
+        padding-top: 4.375rem;
+        @include breakpoint-up(large) {
+            padding-top: 6rem;
+        }
+    }
+
+    &--pr {
+        padding-right: 1.5rem;
+    }
+
+    &--pb {
+        padding-bottom: 4.375rem;
+        @include breakpoint-up(large) {
+            padding-bottom: 6rem;
+        }
+    }
+
+    &--pl {
+        padding-left: 1.5rem;
+    }
 }
 
 // Flexbox styles
@@ -53,6 +136,8 @@ a:active {
 
 // Buttons
 button, .button {
+    position: relative;
+    display: inline-block;
     padding: 0.875rem 2.1875rem;
     border-radius: 50px;
     appearance: none;
@@ -62,7 +147,27 @@ button, .button {
     font-weight: 700;
     font-size: $font-med;
     box-shadow: none;
-    background: linear-gradient(to right, $limeGreen, $brightCyan);
+    background-image: linear-gradient(to right, $limeGreen, $brightCyan);
+    transition: opacity 300ms ease-in-out;
+    opacity: 1;
+    outline: none;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: rgba(255,255,255,0.25);
+        opacity: 0;
+        transition: opacity 150ms ease-in-out;
+        border-radius: 50px;
+    }
+    &:hover::before,
+    &:focus::before {
+        opacity: 1;
+    }
 }
 
 button:active, .button:active {

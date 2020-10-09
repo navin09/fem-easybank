@@ -65,7 +65,7 @@ function watchTask() {
     watch([
         paths.scssPath,
         paths.jsPath
-    ], parallel(scssTask, jsTask));
+    ], series(parallel(scssTask, jsTask), cacheBustTask));
 }
 
 // Clean task

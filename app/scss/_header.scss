@@ -92,12 +92,6 @@
 
     &__cta {
         font-size: $font-sm;
-        color: $white;
-        opacity: 1;
-        transition: opacity 300ms ease-in-out;
-        &:hover {
-            opacity: 0.75;
-        }
     }
 
     &__menu {
